@@ -1,8 +1,6 @@
 const db = require('../models');
 const User = db.user;
 
-
-
 exports.allAccess = (req, res) => {
   User.findAll().then(users => {
     for (const key in users) {
