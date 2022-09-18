@@ -19,6 +19,8 @@ verifyToken = (req, res, next) => {
     next();
   });
 };
+
+// check admin role
 isAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
@@ -35,6 +37,8 @@ isAdmin = (req, res, next) => {
     });
   });
 };
+
+// check Moderator role
 isModerator = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
@@ -50,6 +54,8 @@ isModerator = (req, res, next) => {
     });
   });
 };
+
+// check isModeratorOrAdmin role
 isModeratorOrAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {

@@ -1,7 +1,7 @@
 const db = require('../models');
 const User = db.user;
 
-exports.getAllUsers = (req, res) => {
+exports.getUsers = (req, res) => {
   User.findAll().then(users => {
     for (const key in users) {
       // remote password in object for client
@@ -15,6 +15,7 @@ exports.getAllUsers = (req, res) => {
     res.status(500).send({ message: err.message });
   });
 };
+
 exports.allAccess = (req, res) => {
   res.status(200).send("Public Content.");
 };
