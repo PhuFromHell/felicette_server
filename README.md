@@ -17,3 +17,4 @@
 #         - 
 #         - 
 # nếu bảng roles, users, user_role chưa có thì có thể uncomment ở dòng 27->30 trong file server.js
+# nếu trình duyệt chặng cors thì cần cài extension CORS Unblock cho browser
