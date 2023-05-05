@@ -12,6 +12,6 @@ module.exports = function (app) {
 
 	// router redirect
 	app.get('/api/orders', [authJwt.verifyToken], controller.findAll);
-	app.get('/api/orders:id', [authJwt.verifyToken], controller.findFindByID);
+	app.get('/api/orders/:id', [authJwt.verifyToken], controller.findFindByID);
 	app.post('/api/orders', [authJwt.verifyToken], controller.saveOrder);
 }

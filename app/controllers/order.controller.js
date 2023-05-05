@@ -9,13 +9,16 @@ exports.findAll = (req, res) => {
 	// }).catch(err => {
 	// 	res.status(500).send({ message: err.message });
 	// });
+	console.log('findAll');
 };
 
 exports.findFindByID = (req, res) => {
+	console.log('findFindByID');
 	res.status(200).send({"arr" : Object.values(req.body)});
 };
 
-exports.saveOrder = (req, res) => {
+exports.saveOrder = (req, res) => {	
+	console.log('saveOrder');
 	console.log("🚀 ~ file: order.controller.js:21 ~ req:", req.body);
 	res.status(200).send({"arr" : Object.values(req.body)});
 };
