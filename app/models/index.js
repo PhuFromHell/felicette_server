@@ -32,4 +32,9 @@ db.user.belongsToMany(db.role, {
   otherKey: "roleId"
 });
 db.ROLES = ["user", "admin", "moderator"];
+
+db.item = require("../models/item.model.js")(sequelize, Sequelize);
+// db.item.otherKey(db.item, {
+//   through: "m_items"
+// })
 module.exports = db;
