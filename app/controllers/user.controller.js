@@ -10,7 +10,7 @@ exports.getUsers = (req, res) => {
         delete users[key].password;
       }
     }
-    res.status(200).send({users: users});
+    res.status(200).send({ users: users });
   }).catch(err => {
     res.status(500).send({ message: err.message });
   });
