@@ -1,13 +1,20 @@
-// const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize =  require('../config/db.config');
 
 
 module.exports = (sequelize, Sequelize) => {
 	const Item = sequelize.define("m_items", {
+        // id: {
+        //     type: DataTypes.UUID,
+        //     defaultValue: DataTypes.UUIDV4,
+        //     primaryKey: true
+        //   },
+
         id: {
-            type: Sequelize.INTEGER,
-            primaryKey: true
-        },
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+          },
         name: {
             type: Sequelize.STRING,
             allowNull: false
