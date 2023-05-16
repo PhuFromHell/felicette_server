@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db.config');
 
-class Order extends Model {}
+class Order extends Model { }
 Order.init({
   customer_name: {
     type: DataTypes.STRING,
@@ -79,18 +79,6 @@ Order.init({
     type: DataTypes.FLOAT,
     allowNull: false
   },
-
-
-
-
-
-
-
-
-
-
-
-
   
 }, {
   sequelize,
