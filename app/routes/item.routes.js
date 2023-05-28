@@ -10,10 +10,12 @@ module.exports = function (app) {
     next();
   });
 
-  // router redirect
-  app.get('/api/items', [authJwt.verifyToken], controller.findAll);
-  app.get('/api/items/:id', [authJwt.verifyToken], controller.findFindByID);
+  // router redirect item controller
   app.post('/api/items', [authJwt.verifyToken], controller.saveItem);
+  app.get('/api/items', [authJwt.verifyToken], controller.findAll);
+  // Route GET để lấy một mục theo ID
+  app.get('/api/items/:id', [authJwt.verifyToken], controller.findItemById);
+  // Route DELETE để xóa một mục theo ID
   app.delete('/api/items/:id', [authJwt.verifyToken], controller.deleteItemByID);
   app.patch('/api/items/:id', [authJwt.verifyToken], controller.updateItemByID);
 }

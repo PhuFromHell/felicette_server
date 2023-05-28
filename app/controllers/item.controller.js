@@ -1,5 +1,6 @@
 const db = require('../models');
 const Item = db.item;
+const pg = require('pg')
 
 exports.saveItem = async (req, res, next) => {
   try {
@@ -13,16 +14,65 @@ exports.saveItem = async (req, res, next) => {
   }
 };
 
-exports.findAll = (req, res) => {
-  res.status(200).send({ "arr": ['value 1', 'value 2'] });
+exports.findAll = async (req, res) => {
+  try {
+    Item.findOne({
+      where: {
+      }
+    })
+      .then(item => {
+        if (!item) {
+          return res.status(404).send({ message: "User Not found." });
+        }
+        res.status(200).send({ item });
+      })
+  } catch (error) {
+    next(error);
+  }
 };
 
-exports.findFindByID = (req, res) => {
-  res.status(200).send({ "arr": Object.values(req.body) });
+exports.findItemById = async (req, res) => {
+  const itemId = req.params.id;
+  if (isNaN(itemId)) {
+    return res.status(400).json({ message: 'ID không hợp lệ' });
+  }
+
+  try {
+    Item.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(item => {
+        if (!item) {
+          return res.status(404).json({ message: 'Mục không tồn tại' });
+        }
+        res.status(200).send({ item });
+      })
+  } catch (error) {
+    // Xử lý lỗi nếu có
+    res.status(500).json({ error: error.message });
+  }
 };
 
-exports.deleteItemByID = (req, res) => {
-  res.status(200).send({ "arr": Object.values(req.body) });
+exports.deleteItemByID = async (req, res) => {
+
+  try {
+    Item.delete({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(item => {
+        if (!item) {
+          return res.status(404).json({ message: 'Mục không tồn tại' });
+        }
+        res.status(200).send({ item });
+      })
+  } catch (error) {
+    // Xử lý lỗi nếu có
+    res.status(500).json({ error: error.message });
+  }
 };
 
 exports.updateItemByID = (req, res) => {
