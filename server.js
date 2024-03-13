@@ -45,6 +45,7 @@ app.listen(PORT, () => {
 //   });
 // }
 
+console.log("🚀 ~ initial ~ admin:")
 
 // routes
 require('./app/routes/auth.routes')(app);
