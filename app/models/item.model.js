@@ -64,16 +64,28 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: true
     },
-    del_flg: {
+    delFlg: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    create_by: {
+    createdBy: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    edit_by: {
+    // Cột createdAt
+    createdAt: {
+      type: Sequelize.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.NOW
+    },
+    // Cột editedBy
+    editedBy: {
       type: Sequelize.STRING,
+      allowNull: true
+    },
+    // Cột editedAt
+    editedAt: {
+      type: Sequelize.DATE,
       allowNull: true
     }
   });

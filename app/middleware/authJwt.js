@@ -21,7 +21,7 @@ verifyToken = (req, res, next) => {
 };
 
 // check admin role
-isAdmin = (req, res, next) => {
+const isAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
       for (let i = 0; i < roles.length; i++) {
@@ -39,7 +39,7 @@ isAdmin = (req, res, next) => {
 };
 
 // check Moderator role
-isModerator = (req, res, next) => {
+const isModerator = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
       for (let i = 0; i < roles.length; i++) {

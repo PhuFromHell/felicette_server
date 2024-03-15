@@ -21,6 +21,8 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
+db.item = require("../models/item.model.js")(sequelize, Sequelize);
+db.order = require("../models/order.model.js")(sequelize, Sequelize);
 db.role.belongsToMany(db.user, {
   through: "user_roles",
   foreignKey: "roleId",
@@ -33,7 +35,6 @@ db.user.belongsToMany(db.role, {
 });
 db.ROLES = ["user", "admin", "moderator"];
 
-db.item = require("../models/item.model.js")(sequelize, Sequelize);
 // db.item.otherKey(db.item, {
 //   through: "m_items"
 // })

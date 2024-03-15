@@ -3,8 +3,8 @@ const config = require("../config/auth.config");
 const User = db.user;
 const Role = db.role;
 const Op = db.Sequelize.Op;
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+let jwt = require("jsonwebtoken");
+let bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
@@ -61,6 +61,7 @@ exports.signin = (req, res) => {
       });
       let authorities = [];
       user.getRoles().then(roles => {
+        console.log("🚀 ~ user.getRoles ~ roles:", roles)
         for (const role of roles) {
           authorities.push("ROLE_" + role.name.toUpperCase());
         }
