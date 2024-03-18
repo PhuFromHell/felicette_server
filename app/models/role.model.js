@@ -1,9 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
   const Role = sequelize.define("roles", {
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true
-    },
     name: {
       type: Sequelize.STRING
     },
@@ -12,22 +8,26 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: true
     },
-    // Cột createdAt
-    createdAt: {
-      type: Sequelize.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.NOW
-    },
-    // Cột editedBy
-    editedBy: {
+    // Cột updatedBy
+    updatedBy: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    // Cột editedAt
-    editedAt: {
-      type: Sequelize.DATE,
-      allowNull: true
-    }
+    // Cột updatedAt vì sequelize sẻ tự tạo 3 cột là id, createdAt, updatedAt nên không cần thiết phải tạo 3 cột này
+    // updatedAt: {
+    //   type: Sequelize.DATE,
+    //   allowNull: true
+    // }
+    // Cột createdAt
+    // createdAt: {
+    //   type: Sequelize.DATE,
+    //   allowNull: false,
+    //   defaultValue: Sequelize.NOW
+    // },
+    // id: {
+    //   type: Sequelize.INTEGER,
+    //   primaryKey: true
+    // },
   });
   return Role;
 };

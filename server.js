@@ -31,17 +31,20 @@ app.listen(PORT, () => {
 // function initial() {
 //   Role.create({
 //     id: 1,
-//     name: "user"
+//     name: "user",
+//     createdBy: "admin"
 //   });
 
 //   Role.create({
 //     id: 2,
-//     name: "moderator"
+//     name: "moderator",
+//     createdBy: "admin"
 //   });
 
 //   Role.create({
 //     id: 3,
-//     name: "admin"
+//     name: "admin",
+//     createdBy: "admin"
 //   });
 // }
 
