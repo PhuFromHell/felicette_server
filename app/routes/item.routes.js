@@ -1,5 +1,6 @@
 const { authJwt } = require("../middleware");
-const controller = require("../controllers/item.controller");
+// const controller = require("../controllers/item.controller");
+const ItemController = require("../controllers/item.controller");
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -11,9 +12,18 @@ module.exports = function (app) {
   });
 
   // router redirect
-  app.get('/api/items', [authJwt.verifyToken], controller.findAll);
-  app.get('/api/items/:id', [authJwt.verifyToken], controller.findFindByID);
-  app.post('/api/items', [authJwt.verifyToken], controller.saveItem);
-  app.delete('/api/items/:id', [authJwt.verifyToken], controller.deleteItemByID);
-  app.patch('/api/items/:id', [authJwt.verifyToken], controller.updateItemByID);
+  // app.get('/api/items', [authJwt.verifyToken], controller.findAll);
+  // app.get('/api/items/:id', [authJwt.verifyToken], controller.findFindByID);
+  // app.post('/api/items', [authJwt.verifyToken], controller.saveItem);
+  // app.delete('/api/items/:id', [authJwt.verifyToken], controller.deleteItemByID);
+  // app.patch('/api/items/:id', [authJwt.verifyToken], controller.updateItemByID);
+
+  
+
+  // router redirect
+  app.get('/api/items', [authJwt.verifyToken], ItemController.findAll);
+  app.get('/api/items/:id', [authJwt.verifyToken], ItemController.findFindByID);
+  app.post('/api/items', [authJwt.verifyToken], ItemController.saveItem);
+  app.delete('/api/items/:id', [authJwt.verifyToken], ItemController.deleteItemByID);
+  app.patch('/api/items/:id', [authJwt.verifyToken], ItemController.updateItemByID);
 }
