@@ -1,5 +1,6 @@
 # felicette_server
 # run server  --> node server.js OR node server
+# nodemon co the chay nhu sau: npm run startServer
 
 # branch: - main -> source nguyên thủy nghiêm cấm merge từ bất kỳ nhánh nào
 #         - master -> source hoàn thiện đưa vào sửa dụng

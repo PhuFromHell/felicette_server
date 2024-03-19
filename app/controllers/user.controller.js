@@ -5,7 +5,7 @@ exports.getUsers = (req, res) => {
   User.findAll().then(users => {
     for (const key in users) {
       // remote password in object for client
-      if (Object.hasOwnProperty.call(users, key)) {
+      if (Object.hasOwn(users, key)) {
         users[key] = users[key].dataValues;
         delete users[key].password;
       }
@@ -29,5 +29,9 @@ exports.adminBoard = (req, res) => {
 };
 
 exports.moderatorBoard = (req, res) => {
+  res.status(200).send("Moderator Content.");
+};
+
+exports.moderatorOrAdminBoard = (req, res) => {
   res.status(200).send("Moderator Content.");
 };
