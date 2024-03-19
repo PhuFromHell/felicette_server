@@ -31,3 +31,7 @@ exports.adminBoard = (req, res) => {
 exports.moderatorBoard = (req, res) => {
   res.status(200).send("Moderator Content.");
 };
+
+exports.moderatorOrAdminBoard = (req, res) => {
+  res.status(200).send("Moderator Content.");
+};

@@ -1,0 +1,50 @@
+
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "admin_user",
+    "email": "admin_user@gmail.com",
+    "password": "123",
+    "phone": "0123456788",
+    "roles": ["admin", "moderator","user"]
+}
+
+###
+
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+    "username": "admin_user",
+    "password": "123"
+}
+
+###
+
+GET http://localhost:8080/api/user-controller/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+###
+GET http://localhost:8080/api/test/all
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+###
+GET http://localhost:8080/api/test/admin
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+
+###
+GET http://localhost:8080/api/test/mod
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+###
+GET http://localhost:8080/api/test/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+###
+
+GET http"//localhost:8080/api/test/moderator-or-admin
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+

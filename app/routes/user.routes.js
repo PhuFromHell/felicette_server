@@ -1,8 +1,8 @@
 const { authJwt } = require("../middleware");
-const controller = require("../controllers/user.controller");
+const userController = require("../controllers/user.controller");
 
 module.exports = function (app) {
-  // Middleware để cung cấp phép CORS
+  // Middleware to enable CORS permissions
   app.use(function (req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",
@@ -11,18 +11,21 @@ module.exports = function (app) {
     next();
   });
 
-  // Tuyến đường API để truy cập dành cho mọi người
-  app.get("/api/test/all", controller.allAccess);
+  // Route for accessing API for everyone
+  app.get("/api/test/all", userController.allAccess);
 
-  // Tuyến đường API dành cho người dùng đã xác thực
-  app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
+  // Route for accessing API for authenticated users
+  app.get("/api/test/user", [authJwt.verifyToken], userController.userBoard);
 
-  // Tuyến đường API dành cho người dùng có vai trò moderator
-  app.get("/api/test/mod", [authJwt.verifyToken, authJwt.isModerator], controller.moderatorBoard);
+  // Route for accessing API for users with moderator role
+  app.get("/api/test/mod", [authJwt.verifyToken, authJwt.isModerator], userController.moderatorBoard);
 
-  // Tuyến đường API dành cho người dùng có vai trò admin
-  app.get("/api/test/admin", [authJwt.verifyToken, authJwt.isAdmin], controller.adminBoard);
+  // Route for accessing API for users with admin role
+  app.get("/api/test/admin", [authJwt.verifyToken, authJwt.isAdmin], userController.adminBoard);
 
-  // Tuyến đường API để lấy danh sách người dùng, chỉ dành cho admin
-  app.get("/api/user-controller/users", [authJwt.verifyToken, authJwt.isAdmin], controller.getUsers);
+  // Route for accessing API for users with admin role
+  app.get("/api/test/moderator-or-admin", [authJwt.verifyToken, authJwt.isModeratorOrAdmin], userController.moderatorOrAdminBoard);
+
+  // Route for getting user list, restricted to admin only
+  app.get("/api/user-controller/users", [authJwt.verifyToken, authJwt.isAdmin], userController.getUsers);
 };
