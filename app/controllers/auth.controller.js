@@ -37,45 +37,35 @@ exports.signup = (req, res) => {
     });
 };
 
-exports.signin = (req, res) => {
-  User.findOne({
-    where: {
-      username: req.body.username
-    }
-  })
-    .then(user => {
-      if (!user) {
-        return res.status(404).send({ message: "User Not found." });
-      }
-      let passwordIsValid = bcrypt.compareSync(
-        req.body.password,
-        user.password
-      );
-      if (!passwordIsValid) {
-        return res.status(401).send({
-          accessToken: null,
-          message: "Invalid Password!"
-        });
-      }
-      let token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400 // 24 hours
-      });
-      let authorities = [];
-      user.getRoles().then(roles => {
-        console.log("🚀 ~ user.getRoles ~ roles:", roles)
-        for (const role of roles) {
-          authorities.push("ROLE_" + role.name.toUpperCase());
-        }
-        res.status(200).send({
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          roles: authorities,
-          accessToken: token
-        });
-      });
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
+exports.signin = async (req, res) => {
+  try {
+    const user = await User.findOne({
+      where: { username: req.body.username }
     });
+
+    if (!user) {
+      return res.status(404).send({ message: "User not found." });
+    }
+
+    const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+    if (!passwordIsValid) {
+      return res.status(401).send({ accessToken: null, message: "Invalid password!" });
+    }
+
+    const token = jwt.sign({ id: user.id }, config.secret, { expiresIn: 86400 }); // 24 hours
+
+    const roles = await user.getRoles();
+    const authorities = roles.map(role => "ROLE_" + role.name.toUpperCase());
+
+    res.status(200).send({
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      roles: authorities,
+      accessToken: token
+    });
+  } catch (error) {
+    console.error("Error during signin:", error);
+    res.status(500).send({ message: "An error occurred while signing in." });
+  }
 };

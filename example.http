@@ -23,10 +23,25 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/user-controller/users
 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEwNzU5MjA0LCJleHAiOjE3MTA4NDU2MDR9.EdTuPc6FXCRPhhLMhNCtbIrRPe-f6SnM7XP7KnSMFp4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTcxMDgyMzI3OSwiZXhwIjoxNzEwOTA5Njc5fQ.om1E3RAp2aWc8aJvtrUkZRW3zIYp45Z8s1WiG4l1S4k
 
 ###
 GET http://localhost:8080/api/test/all
-Content-Type: application/json
 
-{}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTcxMDgyMzI3OSwiZXhwIjoxNzEwOTA5Njc5fQ.om1E3RAp2aWc8aJvtrUkZRW3zIYp45Z8s1WiG4l1S4k
+
+###
+GET http://localhost:8080/api/test/admin
+
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTcxMDgyMzI3OSwiZXhwIjoxNzEwOTA5Njc5fQ.om1E3RAp2aWc8aJvtrUkZRW3zIYp45Z8s1WiG4l1S4k
+
+
+###
+GET http://localhost:8080/api/test/mod
+
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTcxMDgyMzI3OSwiZXhwIjoxNzEwOTA5Njc5fQ.om1E3RAp2aWc8aJvtrUkZRW3zIYp45Z8s1WiG4l1S4k
+
+###
+GET http://localhost:8080/api/test/user
+
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTcxMDgyMzI3OSwiZXhwIjoxNzEwOTA5Njc5fQ.om1E3RAp2aWc8aJvtrUkZRW3zIYp45Z8s1WiG4l1S4k

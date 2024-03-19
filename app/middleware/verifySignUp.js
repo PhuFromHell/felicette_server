@@ -32,15 +32,18 @@ const checkDuplicateUsernameOrEmail = (req, res, next) => {
 };
 const checkRolesExisted = (req, res, next) => {
   if (req.body.roles) {
-    if (!ROLES.includes(req.body.roles)) {
-      res.status(400).send({
-        message: "Failed! Role does not exist = " + role
-      });
-      return;
+    const roles = Array.isArray(req.body.roles) ? req.body.roles : [req.body.roles];
+    for (let role of roles) {
+      if (!ROLES.includes(role)) {
+        return res.status(400).send({
+          message: "Failed! Role does not exist: " + role
+        });
+      }
     }
   }
   next();
 };
+
 
 const verifySignUp = {
   checkDuplicateUsernameOrEmail: checkDuplicateUsernameOrEmail,
