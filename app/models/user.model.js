@@ -3,12 +3,10 @@ module.exports = (sequelize, Sequelize) => {
     username: {
       type: Sequelize.STRING,
       allowNull: false,
-      defaultValue: "user_temp"
     },
     email: {
       type: Sequelize.STRING,
-      allowNull: true,
-      defaultValue: "user_temp@gmail.com"
+      allowNull: false,
     },
     password: {
       type: Sequelize.STRING,
@@ -17,11 +15,12 @@ module.exports = (sequelize, Sequelize) => {
     phone: {
       type: Sequelize.STRING,
       allowNull: false,
-      defaultValue: "0XXXXXXXX"
+      defaultValue: "0000000000"
     },
     birthday: {
       type: Sequelize.DATE,
       allowNull: true,
+      defaultValue: new Date(Date.UTC(2000, 1, 1))
     },
     joiningDate: {
       type: Sequelize.DATE,
@@ -30,7 +29,8 @@ module.exports = (sequelize, Sequelize) => {
     },
     delFlg: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: true,
+      defaultValue: "0"
     },
     note: {
       type: Sequelize.STRING,
@@ -39,7 +39,8 @@ module.exports = (sequelize, Sequelize) => {
     // Cột createdBy
     createdBy: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: true,
+      defaultValue: "admin"
     },
     updatedBy: {
       type: Sequelize.STRING,

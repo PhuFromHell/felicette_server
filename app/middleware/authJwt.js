@@ -2,6 +2,8 @@ const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
 const db = require("../models");
 const User = db.user;
+
+// Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
   let token = req.headers["authorization"];
   if (!token) {
@@ -20,33 +22,81 @@ const verifyToken = (req, res, next) => {
   });
 };
 
-// check admin role
-const isAdmin = async (req, res, next) => {
-  try {
-    const user = await User.findByPk(req.userId);
-    if (!user) {
-      return res.status(404).send({ message: "User not found" });
-    }
+// // Middleware to check if user is an admin
+// const isAdmin = (req, res, next) => {
+//   User.findByPk(req.userId).then(user => {
+//     user.getRoles().then(roles => {
+//       for (let i = 0; i < roles.length; i++) {
+//         if (roles[i].name === "admin") {
+//           next();
+//           return;
+//         }
+//       }
+//       res.status(403).send({
+//         message: "Require Admin Role!"
+//       });
+//       return;
+//     });
+//   });
+// };
 
-    const roles = await user.getRoles();
-    const isAdmin = roles.some(role => role.name === "admin");
-    if (isAdmin) {
-      next();
-    } else {
-      res.status(403).send({ message: "Require Admin Role!" });
-    }
-  } catch (error) {
-    console.error("Error in isAdmin middleware:", error);
-    res.status(500).send({ message: "Internal Server Error" });
-  }
+// // Middleware to check if user is a moderator
+// const isModerator = (req, res, next) => {
+//   User.findByPk(req.userId).then(user => {
+//     user.getRoles().then(roles => {
+//       for (let i = 0; i < roles.length; i++) {
+//         if (roles[i].name === "moderator") {
+//           next();
+//           return;
+//         }
+//       }
+//       res.status(403).send({
+//         message: "Require Moderator Role!"
+//       });
+//     });
+//   });
+// };
+
+// // Middleware to check if user is a moderator or admin
+// const isModeratorOrAdmin = (req, res, next) => {
+//   User.findByPk(req.userId).then(user => {
+//     user.getRoles().then(roles => {
+//       for (let i = 0; i < roles.length; i++) {
+//         if (roles[i].name === "moderator" || roles[i].name === "admin") {
+//           next();
+//           return;
+//         }
+//       }
+//       res.status(403).send({
+//         message: "Require Moderator or Admin Role!"
+//       });
+//     });
+//   });
+// };
+
+// Middleware to check if user is an admin
+const isAdmin = (req, res, next) => {
+  User.findByPk(req.userId).then(user => {
+    user.getRoles().then(roles => {
+      for (const role of roles) {
+        if (role.name === "admin") {
+          next();
+          return;
+        }
+      }
+      res.status(403).send({
+        message: "Require Admin Role!"
+      });
+    });
+  });
 };
 
-// check Moderator role
+// Middleware to check if user is a moderator
 const isModerator = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
-      for (let i = 0; i < roles.length; i++) {
-        if (roles[i].name === "moderator") {
+      for (const role of roles) {
+        if (role.name === "moderator") {
           next();
           return;
         }
@@ -58,16 +108,12 @@ const isModerator = (req, res, next) => {
   });
 };
 
-// check isModeratorOrAdmin role
+// Middleware to check if user is a moderator or admin
 const isModeratorOrAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
-      for (let i = 0; i < roles.length; i++) {
-        if (roles[i].name === "moderator") {
-          next();
-          return;
-        }
-        if (roles[i].name === "admin") {
+      for (const role of roles) {
+        if (role.name === "moderator" || role.name === "admin") {
           next();
           return;
         }
@@ -78,10 +124,13 @@ const isModeratorOrAdmin = (req, res, next) => {
     });
   });
 };
+
+// Object containing authentication middleware functions
 const authJwt = {
   verifyToken: verifyToken,
   isAdmin: isAdmin,
   isModerator: isModerator,
   isModeratorOrAdmin: isModeratorOrAdmin
 };
+
 module.exports = authJwt;
