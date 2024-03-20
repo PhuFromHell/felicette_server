@@ -97,25 +97,45 @@
 
 // module.exports = Item;
 
+// const { Model, DataTypes } = require('sequelize');
+// const sequelize = require('../config/db');
 
-const { Model, DataTypes } = require('sequelize');
+// class Item extends Model {}
 
-module.exports = (sequelize, Sequelize) => {
-  class Item extends Model {}
+// Item.init({
+//   name: {
+//     type: DataTypes.STRING,
+//     allowNull: false
+//   },
+//   description: {
+//     type: DataTypes.STRING,
+//     allowNull: false
+//   }
+// }, {
+//   sequelize,
+//   modelName: 'items'
+// });
 
-  Item.init({
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  }, {
-    sequelize,
-    modelName: 'items'
-  });
+// module.exports = Item;
 
-  return Item;
-};
+
+const { DataTypes, Model } = require('sequelize');
+const sequelize = require('../config/db');
+
+class Item extends Model {}
+
+Item.init({
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: false
+  }
+}, {
+  sequelize, // Sử dụng sequelize được khởi tạo từ db.js
+  modelName: 'items' // Đặt tên cho model là 'Item'
+});
+
+module.exports = Item;

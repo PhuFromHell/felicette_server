@@ -24,10 +24,10 @@ app.listen(PORT, () => {
 });
 
 // create 3 basic role
-// db.sequelize.sync({ force: true }).then(() => {
-//   console.log('Drop and Resync Db');
-//   initial();
-// });
+db.sequelize.sync({ force: true }).then(() => {
+  console.log('Drop and Resync Db');
+  // initial();  
+});
 // function initial() {
 //   Role.create({
 //     id: 1,
