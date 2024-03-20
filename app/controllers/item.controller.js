@@ -1,69 +1,64 @@
-// const db = require('../models');
-// const Item = db.item;
-
-// exports.saveItem = async (req, res, next) => {
-//   try {
-//     let obj = req.body;
-//     const item = await Item.create(obj);
-
-//     res.status(201).json(item);
-//   } catch (error) {
-//     console.log("check error", error);
-//     next(error);
-//   }
-// };
-
-// exports.findAll = (req, res) => {
-//   res.status(200).send({ "arr": ['value 1', 'value 2'] });
-// };
-
-// exports.findFindByID = (req, res) => {
-//   res.status(200).send({ "arr": Object.values(req.body) });
-// };
-
-// exports.deleteItemByID = (req, res) => {
-//   res.status(200).send({ "arr": Object.values(req.body) });
-// };
-
-// exports.updateItemByID = (req, res) => {
-//   res.status(200).send({ "arr": Object.values(req.body) });
-// };
-
-
-// dongf duoiw day xoa duoc
-const itemService = require(itemservice)
-
-// controllers/itemController.js
+const itemService = require('../services/item.service'); // Import service
 
 class ItemController {
-  constructor(itemService) {
-      this.itemService = itemService;
-  }
-
   async findAllItems(req, res) {
-      console.log("🚀 ~ ItemController ~ findAllItems ~ findAllItems: controller")
-      // Gọi phương thức findAllItems từ service để lấy danh sách các items
+    try {
+      const items = await itemService.findAllItems();
+      res.json(items);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
 
   async findItemById(req, res) {
-      console.log("🚀 ~ ItemController ~ findItemById ~ findItemById:", findItemById)
-      // Gọi phương thức findItemById từ service để lấy một item dựa trên id
+    const itemId = req.params.id;
+    try {
+      const item = await itemService.findItemById(itemId);
+      if (!item) {
+        return res.status(404).json({ message: "Item not found" });
+      }
+      res.json(item);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
 
-  async createItem(req, res) {
-      console.log("🚀 ~ ItemController ~ createItem ~ createItem:", createItem)
-      // Gọi phương thức createItem từ service để tạo một item mới
+  async saveItem(req, res) {
+    const itemData = req.body;
+    try {
+      const newItem = await itemService.saveItem(itemData);
+      res.status(201).json(newItem);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
 
-  async updateItem(req, res) {
-      console.log("🚀 ~ ItemController ~ updateItem ~ updateItem:", updateItem)
-      // Gọi phương thức updateItem từ service để cập nhật một item dựa trên id
+  async deleteItemById(req, res) {
+    const itemId = req.params.id;
+    try {
+      const result = await itemService.deleteItemById(itemId);
+      if (!result) {
+        return res.status(404).json({ message: "Item not found" });
+      }
+      res.json({ message: "Item deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
 
-  async deleteItem(req, res) {
-      console.log("🚀 ~ ItemController ~ deleteItem ~ deleteItem:", deleteItem)
-      // Gọi phương thức deleteItem từ service để xóa một item dựa trên id
+  async updateItemById(req, res) {
+    const itemId = req.params.id;
+    const newData = req.body;
+    try {
+      const updatedItem = await itemService.updateItemById(itemId, newData);
+      if (!updatedItem) {
+        return res.status(404).json({ message: "Item not found" });
+      }
+      res.json(updatedItem);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
 }
 
-module.exports = ItemController;
+module.exports = new ItemController();

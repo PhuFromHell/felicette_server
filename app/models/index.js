@@ -35,7 +35,4 @@ db.user.belongsToMany(db.role, {
 });
 db.ROLES = ["user", "admin", "moderator"];
 
-// db.item.otherKey(db.item, {
-//   through: "m_items"
-// })
 module.exports = db;
