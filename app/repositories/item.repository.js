@@ -1,16 +1,20 @@
 // const { json } = require('sequelize');
-const Item = require('../models').Item; // Import Item model
+// const Item = require('../models').Item; // Import Item model
 
-class ItemRepository {
+// class ItemRepository {
 
-  async findAllItems() {
-    try {
-      const items = await Item.findAll();
-      return items;
-    } catch (error) {
-      throw new Error(`Error while fetching items: ${error.message}`);
-    }
-  }
+//   async findAllItems() {
+    // try {
+    //   const items = await Item.findAll();
+    //   return items;
+    // } catch (error) {
+    //   throw new Error(`Error while fetching items: ${error.message}`);
+    // }
+  //   console.log("🚀 ~ ItemRepository ~ findAllItems ~ items:")
+
+  //   const items = await Item.findAll();
+  //   return items;
+  // }
 
   // async findItemById(itemId) {
   //   return await db.Item.findByPk(itemId);
@@ -32,5 +36,19 @@ class ItemRepository {
   //   await item.update(newData);
   //   return item;
   // }
+// }
+// module.exports = new ItemRepository();
+
+const { Item } = require('../models'); // Chú ý đây
+
+class ItemRepository {
+  async findAllItems() {
+    try {
+      const items = await Item.findAll();
+      return items;
+    } catch (error) {
+      throw new Error(`Error while fetching items: ${error.message}`);
+    }
+  }
 }
 module.exports = new ItemRepository();

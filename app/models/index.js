@@ -36,11 +36,8 @@
 // db.ROLES = ["user", "admin", "moderator"];
 
 // module.exports = db;
-
-
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 const dbConfig = require('../config/db.config');
-const ItemModel = require('./item.model');
 
 const sequelize = new Sequelize(
   dbConfig.DB,
@@ -63,6 +60,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.Item = new ItemModel(sequelize, Sequelize);
+db.Item = require('./item.model')(sequelize); // Truyền Sequelize vào đây
 
 module.exports = db;
