@@ -47,4 +47,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5
 
 GET http"//localhost:8080/api/test/moderator-or-admin
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+###
+GET http://localhost:8080/api/items
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
 

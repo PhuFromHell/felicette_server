@@ -2,38 +2,33 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db.config');
 
 module.exports = (sequelize, Sequelize) => {
-  const Item = sequelize.define("m_items", {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    name: {
+  const Item = sequelize.define("items", {
+    itemName: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    supplier_name: {
+    supplierName: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    quanlity: {
-      type: Sequelize.STRING,
+    quality: {
+      type: Sequelize.STRING(10),
       allowNull: true
     },
     branch: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(10),
       allowNull: true
     },
     color: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(7),
       allowNull: true
     },
     origin: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(15),
       allowNull: true
     },
     description: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: true
     },
     fabric: {
@@ -44,23 +39,23 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    image_1: {
+    image1: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    image_2: {
+    image2: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    image_3: {
+    image3: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    image_4: {
+    image4: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    image_5: {
+    image5: {
       type: Sequelize.STRING,
       allowNull: true
     },
@@ -72,22 +67,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: true
     },
-    // Cột createdAt
-    createdAt: {
-      type: Sequelize.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.NOW
-    },
-    // Cột editedBy
-    editedBy: {
+    updatedBy: {
       type: Sequelize.STRING,
       allowNull: true
     },
-    // Cột editedAt
-    editedAt: {
-      type: Sequelize.DATE,
-      allowNull: true
-    }
   });
   return Item;
 };
