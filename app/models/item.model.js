@@ -39,23 +39,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    image1: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    image2: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    image3: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    image4: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    image5: {
+    image: {
       type: Sequelize.STRING,
       allowNull: true
     },
