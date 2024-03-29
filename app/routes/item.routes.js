@@ -1,5 +1,5 @@
-const { authJwt } = require("../middleware");
-const ItemController = require("../controllers/item.controller");
+const { authJwt } = require("../middleware"); // Import authentication middleware
+const ItemController = require("../controllers/item.controller"); // Import item controller
 
 module.exports = function (app) {
   // Middleware to enable CORS permissions
@@ -12,19 +12,18 @@ module.exports = function (app) {
   });
 
   // Route for accessing API for everyone
+  // Endpoint to retrieve all items, authentication required
   app.get('/api/items', [authJwt.verifyToken], ItemController.findAllItems);
-  // Route for accessing API for authenticated users
-  // app.get("/api/test/user", [authJwt.verifyToken], ItemController.userBoard);
-
-  // // Route for accessing API for users with moderator role
-  // app.get("/api/test/mod", [authJwt.verifyToken, authJwt.isModerator], ItemController.moderatorBoard);
-
-  // // Route for accessing API for users with admin role
-  // app.get("/api/test/admin", [authJwt.verifyToken, authJwt.isAdmin], ItemController.adminBoard);
-
-  // // Route for accessing API for users with admin role
-  // app.get("/api/test/moderator-or-admin", [authJwt.verifyToken, authJwt.isModeratorOrAdmin], ItemController.moderatorOrAdminBoard);
-
-  // // Route for getting user list, restricted to admin only
-  // app.get("/api/user-controller/users", [authJwt.verifyToken, authJwt.isAdmin], ItemController.getUsers);
+  
+  // Endpoint to retrieve a specific item by ID, authentication required
+  app.get('/api/items/:id', [authJwt.verifyToken], ItemController.findItemById);
+  
+  // Endpoint to delete a specific item by ID, authentication required
+  app.delete('/api/items/:id', [authJwt.verifyToken], ItemController.deleteItemById);
+  
+  // Endpoint to update a specific item by ID, authentication required
+  app.put('/api/items/:id', [authJwt.verifyToken], ItemController.updateItem);
+  
+  // Endpoint to create a new item, authentication required
+  app.post('/api/items', [authJwt.verifyToken], ItemController.saveItem);
 };

@@ -1,6 +1,7 @@
 const itemService = require('../services/item.service'); // Import service
 
 class ItemController {
+  // Find all items controller
   async findAllItems(req, res) {
     try {
       const items = await itemService.findAllItems();
@@ -10,6 +11,7 @@ class ItemController {
     }
   }
 
+  // Find item by ID controller
   async findItemById(req, res) {
     const itemId = req.params.id;
     try {
@@ -23,6 +25,7 @@ class ItemController {
     }
   }
 
+  // Save item controller
   async saveItem(req, res) {
     const itemData = req.body;
     try {
@@ -33,6 +36,7 @@ class ItemController {
     }
   }
 
+  // Delete item by ID controller
   async deleteItemById(req, res) {
     const itemId = req.params.id;
     try {
@@ -46,11 +50,12 @@ class ItemController {
     }
   }
 
-  async updateItemById(req, res) {
+  // Update item by ID controller
+  async updateItem(req, res) {
     const itemId = req.params.id;
     const newData = req.body;
     try {
-      const updatedItem = await itemService.updateItemById(itemId, newData);
+      const updatedItem = await itemService.updateItem(itemId, newData);
       if (!updatedItem) {
         return res.status(404).json({ message: "Item not found" });
       }

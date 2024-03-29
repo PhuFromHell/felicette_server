@@ -51,3 +51,54 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5
 GET http://localhost:8080/api/items
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
 
+###
+POST http://localhost:8080/api/items
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+Content-Type: application/json
+
+{
+    "itemName": "ao bóng đá bullball",
+    "supplierName": "bullball",
+    "quality": "loại 1",
+    "branch": "local",
+    "color": "đỏ",
+    "origin": "vietnam",
+    "description": "áo có form đẹp, màu vãi đều, đường may sắc nét",
+    "fabric": "tổng hợp",
+    "status": 1,
+    "image": "đường dẫn hình ảnh",
+    "delFlg": "1",
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+###
+PUT http://localhost:8080/api/items
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+Content-Type: application/json
+
+{
+    "id": "1",
+    "itemName": "update ao bóng đá bullball",
+    "supplierName": "bullball",
+    "quality": "loại 1",
+    "branch": "local",
+    "color": "đỏ",
+    "origin": "vietnam",
+    "description": "ao dep mau vãi đều, đường may sắc nét",
+    "fabric": "tổng hợp",
+    "status": 100,
+    "image": "đường dẫn hình ảnh",
+    "delFlg": "1",
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+###
+GET http://localhost:8080/api/items/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+
+###
+DELETE http://localhost:8080/api/items/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+

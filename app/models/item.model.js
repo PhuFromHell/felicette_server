@@ -4,11 +4,11 @@ const sequelize = require('../config/db.config');
 module.exports = (sequelize, Sequelize) => {
   const Item = sequelize.define("items", {
     itemName: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(255),
       allowNull: false
     },
     supplierName: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(255),
       allowNull: false
     },
     quality: {
@@ -32,27 +32,29 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: true
     },
     fabric: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(15),
       allowNull: true
     },
     status: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: false,
+      defaultValue: 0
     },
     image: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: true
     },
     delFlg: {
-      type: Sequelize.STRING,
-      allowNull: true
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      defaultValue: 0
     },
     createdBy: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(15),
       allowNull: true
     },
     updatedBy: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(15),
       allowNull: true
     },
   });
