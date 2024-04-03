@@ -14,16 +14,16 @@ module.exports = function (app) {
   // Route for accessing API for everyone
   // Endpoint to retrieve all items, authentication required
   app.get('/api/items', [authJwt.verifyToken], ItemController.findAllItems);
-  
+
   // Endpoint to retrieve a specific item by ID, authentication required
   app.get('/api/items/:id', [authJwt.verifyToken], ItemController.findItemById);
-  
+
   // Endpoint to delete a specific item by ID, authentication required
   app.delete('/api/items/:id', [authJwt.verifyToken], ItemController.deleteItemById);
-  
+
   // Endpoint to update a specific item by ID, authentication required
   app.put('/api/items/:id', [authJwt.verifyToken], ItemController.updateItem);
-  
+
   // Endpoint to create a new item, authentication required
   app.post('/api/items', [authJwt.verifyToken], ItemController.saveItem);
 };

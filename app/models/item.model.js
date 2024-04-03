@@ -1,8 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db.config');
 
+// Define the Item model
 module.exports = (sequelize, Sequelize) => {
   const Item = sequelize.define("items", {
+    // Define attributes for the Item model
     itemName: {
       type: Sequelize.STRING(255),
       allowNull: false
@@ -58,5 +60,5 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: true
     },
   });
-  return Item;
+  return Item; // Return the defined Item model
 };
