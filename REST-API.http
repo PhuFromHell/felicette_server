@@ -102,3 +102,20 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2
 DELETE http://localhost:8080/api/items/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
 
+
+###
+GET http://localhost:8080/api/customers
+
+###
+POST http://localhost:8080/api/customers
+Content-Type: application/json
+
+{
+    "username": "admin_user",
+    "email": "admin_user@gmail.com",
+    "password": "123",
+    "phone": "0123456788",
+    "roles": ["admin", "moderator","user"]
+}
+
+###
