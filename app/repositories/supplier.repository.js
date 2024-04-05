@@ -3,7 +3,7 @@ const db = require("../models");
 const Supplier = db.Supplier;
 
 class SupplierRepository {
-    async findAllSupplier() {
+    async findAllSuppliers() {
       try {
         const suppliers = await Supplier.findAll();
         return suppliers;

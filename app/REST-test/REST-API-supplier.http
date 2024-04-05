@@ -3,16 +3,16 @@ GET http://localhost:8080/api/suppliers
 
 ###
 POST http://localhost:8080/api/suppliers
-# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
 Content-Type: application/json
 
 {
     "supplierName": "ao bóng đá bullball",
-    "addres": "bullball",
+    "address": "bullball",
     "phone": "1234567890",
     "createdBy": "admin",
-    "updatedBy": "admin",
+    "updatedBy": "admin"
 }
+
 
 ###
 PUT http://localhost:8080/api/suppliers
@@ -30,9 +30,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/suppliers/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
 
 ###
 DELETE http://localhost:8080/api/suppliers/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
 

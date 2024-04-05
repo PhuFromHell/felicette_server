@@ -3,7 +3,6 @@ const supplierService = require('../services/supplier.service'); // Import servi
 class SupplierController {
   // Find all suppliers controller
   async findAllSuppliers(req, res) {
-    console.log("🚀 ~ SupplierController ~ findAllSuppliers ~ req:", req)
     try {
       const suppliers = await supplierService.findAllSuppliers();
       res.json(suppliers);
@@ -28,6 +27,7 @@ class SupplierController {
 
   // Save supplier controller
   async saveSupplier(req, res) {
+    console.log("🚀 ~ SupplierController ~ saveSupplier ~ req:", req.body);
     const supplierData = req.body;
     try {
       const newSupplier = await supplierService.saveSupplier(supplierData);
