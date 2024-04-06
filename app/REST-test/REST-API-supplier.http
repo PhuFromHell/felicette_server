@@ -1,0 +1,36 @@
+###
+GET http://localhost:8080/api/suppliers
+
+###
+POST http://localhost:8080/api/suppliers
+Content-Type: application/json
+
+{
+    "supplierName": "ao bóng đá bullball",
+    "address": "bullball",
+    "phone": "1234567890",
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+
+###
+PUT http://localhost:8080/api/suppliers
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+Content-Type: application/json
+
+{
+    "id":"1",
+    "supplierName": "ao bóng đá bullball",
+    "addres": "bullball",
+    "phone": "12344567890",
+    "createdBy": "admin",
+    "updatedBy": "admin",
+}
+
+###
+GET http://localhost:8080/api/suppliers/2
+
+###
+DELETE http://localhost:8080/api/suppliers/2
+
