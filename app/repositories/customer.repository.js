@@ -5,7 +5,12 @@ class CustomerRepository {
   // Find all customers in the database
   async findAllCustomers() {
     try {
-      const customers = await Customer.findAll({order: [['id','asc']]});
+      const customers = await Customer.findAll({
+        where: {
+          delFlg: 0
+        }, 
+        order: [['id', 'asc']]
+      });
       return customers;
     } catch (error) {
       throw new Error(`Error while fetching customers: ${error.message}`);

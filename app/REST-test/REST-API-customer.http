@@ -10,7 +10,6 @@ Content-Type: application/json
     "mail": "nguyenvana@gmail.com",
     "phone": "123412341234",
     "address": "1234 12341234",
-    "status": 1,
     "postalCode": "12341234",
     "country": "HCM",
     "createdBy": "admin",

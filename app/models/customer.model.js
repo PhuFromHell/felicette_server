@@ -23,7 +23,8 @@ module.exports = (sequelize, Sequelize) => {
     },
     status: {
       type: Sequelize.INTEGER,
-      allowNull: true
+      allowNull: false,
+      defaultValue: 0
     },
     postalCode : {
       type: Sequelize.STRING(8),
@@ -32,6 +33,11 @@ module.exports = (sequelize, Sequelize) => {
     country : {
       type: Sequelize.STRING(255),
       allowNull: true
+    },
+    delFlg : {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      defaultValue: 0
     },
     createdBy: {
       type: Sequelize.STRING(15),
