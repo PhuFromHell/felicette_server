@@ -52,7 +52,7 @@ class CustomerController {
 
   // Update customer by ID controller
   async updateCustomer(req, res) {
-    const customerId = req.params.id;
+    const customerId = req.body.id;
     const newData = req.body;
     try {
       const updatedCustomer = await customerService.updateCustomer(customerId, newData);

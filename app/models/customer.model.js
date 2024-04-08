@@ -21,10 +21,6 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING(255),
       allowNull: true
     },
-    city: {
-      type: Sequelize.STRING(255),
-      allowNull: true
-    },
     status: {
       type: Sequelize.INTEGER,
       allowNull: true

@@ -1,0 +1,43 @@
+###
+GET http://localhost:8080/api/customers
+
+###
+POST http://localhost:8080/api/customers
+Content-Type: application/json
+
+{
+    "name": "Nguyễn Văn A",
+    "mail": "nguyenvana@gmail.com",
+    "phone": "123412341234",
+    "address": "1234 12341234",
+    "status": 1,
+    "postalCode": "12341234",
+    "country": "HCM",
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+
+###
+PUT http://localhost:8080/api/customers
+Content-Type: application/json
+
+{
+    "id": "2",
+    "name": "Nguyễn Văn A update",
+    "mail": "nguyenvana@gmail.com",
+    "phone": "123412341234",
+    "address": "1234 12341234",
+    "status": 1,
+    "postalCode": "12341234",
+    "country": "HCM",
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+###
+GET http://localhost:8080/api/customers/1
+
+###
+DELETE http://localhost:8080/api/customers/1
+
