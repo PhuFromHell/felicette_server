@@ -1,7 +1,8 @@
 const { authJwt } = require("../middleware");
-const controller = require("../controllers/order.controller");
+const orderController = require("../controllers/order.controller");
 
 module.exports = function (app) {
+  // Middleware to enable CORS permissions
   app.use(function (req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",
@@ -10,8 +11,19 @@ module.exports = function (app) {
     next();
   });
 
-  // router redirect
-  app.get('/api/orders', [authJwt.verifyToken], controller.findAll);
-  app.get('/api/orders/:id', [authJwt.verifyToken], controller.findFindByID);
-  app.post('/api/orders', [authJwt.verifyToken], controller.saveOrder);
-}
+  // Route for accessing API for everyone
+  // Endpoint to retrieve all orders, authentication required
+  app.get('/api/orders', orderController.findAllOrders);
+
+  // Endpoint to retrieve a specific order by ID, authentication required
+  app.get('/api/orders/:id', orderController.findOrderById);
+
+  // Endpoint to delete a specific order by ID, authentication required
+  app.delete('/api/orders/:id', orderController.deleteOrderById);
+
+  // Endpoint to update a specific order by ID, authentication required
+  app.put('/api/orders/:id', orderController.updateOrder);
+
+  // Endpoint to create a new order, authentication required
+  app.post('/api/orders', orderController.saveOrder);
+};

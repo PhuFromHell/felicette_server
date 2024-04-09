@@ -9,7 +9,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING(255),
       allowNull: false
     },
-    supplierName: {
+    supplier: {
       type: Sequelize.STRING(255),
       allowNull: false
     },
@@ -28,6 +28,15 @@ module.exports = (sequelize, Sequelize) => {
     origin: {
       type: Sequelize.STRING(15),
       allowNull: true
+    },
+    price: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    currency: {
+      type: Sequelize.STRING(5),
+      allowNull: true,
+      defaultValue: 'VND'
     },
     description: {
       type: Sequelize.TEXT,

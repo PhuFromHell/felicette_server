@@ -1,26 +1,24 @@
+const { DataTypes } = require("sequelize");
+
 module.exports = (sequelize, Sequelize) => {
   const Order = sequelize.define("orders", {
-    customer_name: {
+    customerName: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    contract_no: {
+    phone: {
       type: Sequelize.STRING,
-      allowNull: true
-    },
-    birth_date: {
-      type: Sequelize.DATE,
       allowNull: true
     },
     address: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    delivery_date: {
+    deliveryDate: {
       type: Sequelize.DATE,
       allowNull: false
     },
-    order_date: {
+    orderDate: {
       type: Sequelize.STRING,
       allowNull: true
     },
@@ -28,35 +26,24 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    size: {
+    brand: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    quanlity: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    branch: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    fabric: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    unit_price: {
+    unitPrice: {
       type: Sequelize.FLOAT,
       allowNull: false
     },
     currency: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true,
+      defaultValue: 'VND'
     },
-    note_by_customer: {
+    noteByCustomer: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    note_by_employee: {
+    note: {
       type: Sequelize.STRING,
       allowNull: false
     },
@@ -64,13 +51,22 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    employee_id: {
+    orderBy: {
       type: Sequelize.STRING,
       allowNull: false
     },
     tax: {
       type: Sequelize.FLOAT,
       allowNull: false
+    },
+    createdBy: {
+      type: Sequelize.STRING,
+      allowNull: true,
+      defaultValue: "admin"
+    },
+    updatedBy: {
+      type: Sequelize.STRING,
+      allowNull: true
     },
   });
   return Order;
