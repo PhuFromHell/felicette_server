@@ -21,22 +21,31 @@ Content-Type: application/json
     "orderBy": "ádf",
     "tax": 1234,
     "createdBy": "admin",
-    "updatedBy": "admin",
+    "updatedBy": "admin"
 }
-
 
 ###
 PUT http://localhost:8080/api/orders
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
 Content-Type: application/json
 
 {
-    "id":"1",
-    "supplierName": "ao bóng đá bullball",
-    "addres": "bullball",
-    "phone": "12344567890",
-    "createdBy": "admin",
-    "updatedBy": "admin",
+    "id": 1,
+    "customerName": "customer Nameupdate",
+    "phone": "1234121234",
+    "address": "1234 sdfg sdfg sadf asdfasdf aweqr asdf sdfg sdfg Nameupdate",
+    "deliveryDate": "2024-04-09 18:09:46.256+07",
+    "orderDate": "2024-04-09 18:09:46.256+07",
+    "quantity": 12,
+    "brand": "123",
+    "unitPrice": 12341234,
+    "currency": "VND",
+    "noteByCustomer": "asdfa adsf ad Nameupdate ",
+    "note": "asdfa asdf à",
+    "status": "2",
+    "orderBy": "ádf",
+    "tax": 1234,
+    "createdBy": "Nameupdate",
+    "updatedBy": "Nameupdate"
 }
 
 ###

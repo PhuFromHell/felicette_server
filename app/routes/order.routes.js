@@ -22,7 +22,7 @@ module.exports = function (app) {
   app.delete('/api/orders/:id', orderController.deleteOrderById);
 
   // Endpoint to update a specific order by ID, authentication required
-  app.put('/api/orders/:id', orderController.updateOrder);
+  app.put('/api/orders', orderController.updateOrder);
 
   // Endpoint to create a new order, authentication required
   app.post('/api/orders', orderController.saveOrder);

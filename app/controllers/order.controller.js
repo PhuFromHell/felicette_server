@@ -52,10 +52,9 @@ class OrderController {
 
   // Update order by ID controller
   async updateOrder(req, res) {
-    const orderId = req.params.id;
     const newData = req.body;
     try {
-      const updatedOrder = await orderService.updateOrder(orderId, newData);
+      const updatedOrder = await orderService.updateOrder(req.body.id, newData);
       if (!updatedOrder) {
         return res.status(404).json({ message: "Order not found" });
       }
