@@ -6,7 +6,7 @@ POST http://localhost:8080/api/suppliers
 Content-Type: application/json
 
 {
-    "supplierName": "ao bóng đá bullball",
+    "name": "ao bóng đá bullball",
     "address": "bullball",
     "phone": "1234567890",
     "createdBy": "admin",
@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
     "id":"1",
-    "supplierName": "ao bóng đá bullball",
+    "name": "ao bóng đá bullball",
     "addres": "bullball",
     "phone": "12344567890",
     "createdBy": "admin",

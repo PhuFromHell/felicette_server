@@ -6,7 +6,7 @@ POST http://localhost:8080/api/orders
 Content-Type: application/json
 
 {
-    "customerName": "customer Name",
+    "name": "customer Name",
     "phone": "1234121234",
     "address": "1234 sdfg sdfg sadf asdfasdf aweqr asdf sdfg sdfg sdfg",
     "deliveryDate": "2024-04-09 18:09:46.256+07",
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 {
     "id": 1,
-    "customerName": "customer Nameupdate",
+    "name": "customer Nameupdate",
     "phone": "1234121234",
     "address": "1234 sdfg sdfg sadf asdfasdf aweqr asdf sdfg sdfg Nameupdate",
     "deliveryDate": "2024-04-09 18:09:46.256+07",

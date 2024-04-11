@@ -5,7 +5,7 @@ const sequelize = require('../config/db.config');
 module.exports = (sequelize, Sequelize) => {
   const Item = sequelize.define("items", {
     // Define attributes for the Item model
-    itemName: {
+    name: {
       type: Sequelize.STRING(255),
       allowNull: false
     },

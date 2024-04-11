@@ -57,7 +57,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2
 Content-Type: application/json
 
 {
-    "itemName": "ao bóng đá bullball",
+    "name": "ao bóng đá bullball",
     "supplierName": "bullball",
     "quality": "loại 1",
     "branch": "local",
@@ -79,7 +79,7 @@ Content-Type: application/json
 
 {
     "id": "1",
-    "itemName": "update ao bóng đá bullball",
+    "name": "update ao bóng đá bullball",
     "supplierName": "bullball",
     "quality": "loại 1",
     "branch": "local",
