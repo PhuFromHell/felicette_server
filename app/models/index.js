@@ -25,6 +25,7 @@ db.Item = require("../models/item.model.js")(sequelize, Sequelize);
 db.Customer = require("../models/customer.model.js")(sequelize, Sequelize);
 db.Supplier = require("../models/supplier.model.js")(sequelize, Sequelize);
 db.Order = require("../models/order.model.js")(sequelize, Sequelize);
+db.OrderDetail = require("../models/order-detail.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",

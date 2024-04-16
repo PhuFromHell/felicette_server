@@ -1,0 +1,44 @@
+###
+GET http://localhost:8080/api/order-detail
+
+###
+POST http://localhost:8080/api/order-detail
+Content-Type: application/json
+
+{
+    "name": "hoangaphu",
+    "number": "17",
+    "brand": "bullball",
+    "size": "M",
+    "color": "123456",
+    "price": 1234,
+    "note": "asdfasd dfa dsa fasdf ",
+    "status": 1,
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+
+###
+PUT http://localhost:8080/api/order-detail
+Content-Type: application/json
+
+{
+    "id": "2",
+    "name": "Nguyễn Văn A update",
+    "mail": "nguyenvana@gmail.com",
+    "phone": "123412341234",
+    "address": "1234 12341234",
+    "status": 1,
+    "postalCode": "12341234",
+    "country": "HCM",
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+###
+GET http://localhost:8080/api/order-detail/1
+
+###
+DELETE http://localhost:8080/api/order-detail/1
+
