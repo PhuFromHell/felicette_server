@@ -1,0 +1,56 @@
+###
+GET http://localhost:8080/api/orders
+
+###
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+    "name": "customer Name",
+    "phone": "1234121234",
+    "address": "1234 sdfg sdfg sadf asdfasdf aweqr asdf sdfg sdfg sdfg",
+    "deliveryDate": "2024-04-09 18:09:46.256+07",
+    "orderDate": "2024-04-09 18:09:46.256+07",
+    "quantity": 12,
+    "brand": "123",
+    "unitPrice": 12341234,
+    "currency": "VND",
+    "noteByCustomer": "asdfa adsf ad dá ",
+    "note": "asdfa asdf à",
+    "status": "2",
+    "orderBy": "ádf",
+    "tax": 1234,
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+###
+PUT http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "customer Nameupdate",
+    "phone": "1234121234",
+    "address": "1234 sdfg sdfg sadf asdfasdf aweqr asdf sdfg sdfg Nameupdate",
+    "deliveryDate": "2024-04-09 18:09:46.256+07",
+    "orderDate": "2024-04-09 18:09:46.256+07",
+    "quantity": 12,
+    "brand": "123",
+    "unitPrice": 12341234,
+    "currency": "VND",
+    "noteByCustomer": "asdfa adsf ad Nameupdate ",
+    "note": "asdfa asdf à",
+    "status": "2",
+    "orderBy": "ádf",
+    "tax": 1234,
+    "createdBy": "Nameupdate",
+    "updatedBy": "Nameupdate"
+}
+
+###
+GET http://localhost:8080/api/orders/2
+
+###
+DELETE http://localhost:8080/api/orders/2
+

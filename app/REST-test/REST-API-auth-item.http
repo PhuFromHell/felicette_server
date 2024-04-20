@@ -1,0 +1,121 @@
+
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "admin_user",
+    "email": "admin_user@gmail.com",
+    "password": "123",
+    "phone": "0123456788",
+    "roles": ["admin", "moderator","user"]
+}
+
+###
+
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+    "username": "admin_user",
+    "password": "123"
+}
+
+###
+
+GET http://localhost:8080/api/user-controller/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+###
+GET http://localhost:8080/api/test/all
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+###
+GET http://localhost:8080/api/test/admin
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+
+###
+GET http://localhost:8080/api/test/mod
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+###
+GET http://localhost:8080/api/test/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+
+###
+
+GET http"//localhost:8080/api/test/moderator-or-admin
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzEwODM5OTI3LCJleHAiOjE3MTA5MjYzMjd9.8MA8DKXNwVcICsGNar-XOoPm1AlD2pj5saPTtTef4xw
+###
+GET http://localhost:8080/api/items
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+
+###
+POST http://localhost:8080/api/items
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+Content-Type: application/json
+
+{
+    "name": "ao bóng đá bullball",
+    "supplierName": "bullball",
+    "quality": "loại 1",
+    "branch": "local",
+    "color": "đỏ",
+    "origin": "vietnam",
+    "description": "áo có form đẹp, màu vãi đều, đường may sắc nét",
+    "fabric": "tổng hợp",
+    "status": 1,
+    "image": "đường dẫn hình ảnh",
+    "delFlg": "1",
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+###
+PUT http://localhost:8080/api/items
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+Content-Type: application/json
+
+{
+    "id": "1",
+    "name": "update ao bóng đá bullball",
+    "supplierName": "bullball",
+    "quality": "loại 1",
+    "branch": "local",
+    "color": "đỏ",
+    "origin": "vietnam",
+    "description": "ao dep mau vãi đều, đường may sắc nét",
+    "fabric": "tổng hợp",
+    "status": 100,
+    "image": "đường dẫn hình ảnh",
+    "delFlg": "1",
+    "createdBy": "admin",
+    "updatedBy": "admin"
+}
+
+###
+GET http://localhost:8080/api/items/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+
+###
+DELETE http://localhost:8080/api/items/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjQ2NDU5LCJleHAiOjE3MTE3MzI4NTl9.79ISwIEeTvGa3OX3Dg0O25Qs2iO2a56jb9d5U4xyYBU
+
+
+###
+GET http://localhost:8080/api/customers
+
+###
+POST http://localhost:8080/api/customers
+Content-Type: application/json
+
+{
+    "username": "admin_user",
+    "email": "admin_user@gmail.com",
+    "password": "123",
+    "phone": "0123456788",
+    "roles": ["admin", "moderator","user"]
+}
+
+###

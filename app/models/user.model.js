@@ -36,7 +36,6 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: true
     },
-    // Cột createdBy
     createdBy: {
       type: Sequelize.STRING,
       allowNull: true,
@@ -46,22 +45,6 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: true
     },
-    // Cột updatedAt vì sequelize sẻ tự tạo 3 cột là id, createdAt, updatedAt nên không cần thiết phải tạo 3 cột này
-    // createdAt: {
-    //   type: Sequelize.DATE,
-    //   defaultValue: Sequelize.NOW,
-    //   allowNull: false
-    // },
-    // Cột editedBy
-    // Cột editedAt
-    // updatedAt: {
-    //   type: Sequelize.DATE,
-    //   allowNull: true
-    // }
-    // id: {
-    //   type: Sequelize.INTEGER,
-    //   primaryKey: true
-    // },
   });
   return User;
 };

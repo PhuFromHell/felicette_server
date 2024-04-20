@@ -1,47 +1,35 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize, Sequelize) => {
-  const Order = sequelize.define("orders", {
+  const OrderDetail = sequelize.define("order_details", {
     name: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(30),
       allowNull: false
     },
-    phone: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    address: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    deliveryDate: {
-      type: Sequelize.DATE,
-      allowNull: false
-    },
-    orderDate: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    quantity: {
-      type: Sequelize.INTEGER,
+    number: {
+      type: Sequelize.STRING(5),
       allowNull: false
     },
     brand: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(10),
       allowNull: false
     },
-    unitPrice: {
+    size: {
+      type: Sequelize.STRING(4),
+      allowNull: false
+    },
+    color: {
+      type: Sequelize.STRING(10),
+      allowNull: false
+    },
+    price: {
       type: Sequelize.FLOAT,
       allowNull: false
     },
     currency: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(3),
       allowNull: true,
       defaultValue: 'VND'
-    },
-    noteByCustomer: {
-      type: Sequelize.STRING,
-      allowNull: false
     },
     note: {
       type: Sequelize.STRING,
@@ -49,14 +37,6 @@ module.exports = (sequelize, Sequelize) => {
     },
     status: {
       type: Sequelize.STRING,
-      allowNull: false
-    },
-    orderBy: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    tax: {
-      type: Sequelize.FLOAT,
       allowNull: false
     },
     delFlg: {
@@ -74,5 +54,5 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: true
     },
   });
-  return Order;
+  return OrderDetail;
 };
