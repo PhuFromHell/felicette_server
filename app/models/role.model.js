@@ -1,33 +1,20 @@
 module.exports = (sequelize, Sequelize) => {
+  // Define the Role model with sequelize
   const Role = sequelize.define("roles", {
+    // Define the 'name' column with string type and maximum length of 50 characters
     name: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(50)
     },
-    // Cột createdBy
+    // Column for 'createdBy' to track the creator of the role
     createdBy: {
-      type: Sequelize.STRING,
-      allowNull: true
+      type: Sequelize.STRING(10),
+      allowNull: true // Allow null values for createdBy
     },
-    // Cột updatedBy
+    // Column for 'updatedBy' to track the updater of the role
     updatedBy: {
-      type: Sequelize.STRING,
-      allowNull: true
+      type: Sequelize.STRING(10),
+      allowNull: true // Allow null values for updatedBy
     },
-    // Cột updatedAt vì sequelize sẻ tự tạo 3 cột là id, createdAt, updatedAt nên không cần thiết phải tạo 3 cột này
-    // updatedAt: {
-    //   type: Sequelize.DATE,
-    //   allowNull: true
-    // }
-    // Cột createdAt
-    // createdAt: {
-    //   type: Sequelize.DATE,
-    //   allowNull: false,
-    //   defaultValue: Sequelize.NOW
-    // },
-    // id: {
-    //   type: Sequelize.INTEGER,
-    //   primaryKey: true
-    // },
   });
   return Role;
 };
