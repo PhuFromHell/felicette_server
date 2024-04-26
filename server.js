@@ -4,8 +4,10 @@ const app = express();
 const db = require("./app/models");
 const Role = db.role;
 
+const clentURL = "http://localhost:5173"
+
 let corsOptions = {
-  origin: "http:/localhost:8080"
+  origin: clentURL
 };
 
 app.use(cors(corsOptions));
