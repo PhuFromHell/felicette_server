@@ -20,7 +20,7 @@
     "authentication",
     "postgres"
   ],
-  "author": "bezkoder",
+  "author": "hoangaphu",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/PhuFromHell/felicette_server/issues"
