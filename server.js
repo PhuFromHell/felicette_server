@@ -17,11 +17,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to Đạo Huỳnh SPORTS application." });
 });
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
+  console.log(`Welcome to Đạo Huỳnh SPORTS application.`);
   console.log(`Server is runing on port: ${PORT}`);
 });
 

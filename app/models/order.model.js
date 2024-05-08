@@ -10,6 +10,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: true
     },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: true
+    },
     address: {
       type: Sequelize.STRING,
       allowNull: false
@@ -30,7 +34,11 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    unitPrice: {
+    deposit: {
+      type: Sequelize.FLOAT,
+      allowNull: false
+    },
+    totalPrice: {
       type: Sequelize.FLOAT,
       allowNull: false
     },
