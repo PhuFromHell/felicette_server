@@ -25,6 +25,16 @@ class OrderService {
   async updateOrder(orderId, newData) {
     return await orderRepository.updateOrder(orderId, newData);
   }
+
+  // Function to fetch orders with conditions
+  async fetchOrdersWithConditions(conditions) {
+    try {
+      const orders = await orderRepository.fetchOrdersWithConditions(conditions);
+      return orders;
+    } catch (error) {
+      throw new Error('Error while fetching orders with conditions: ' + error.message);
+    }
+  }
 }
 
 module.exports = new OrderService();
