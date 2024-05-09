@@ -1,8 +1,8 @@
 ###
-GET http://localhost:8080/api/orders
+GET http://localhost:8080/api/orders/find-all
 
 ###
-POST http://localhost:8080/api/orders
+POST http://localhost:8080/api/orders/save
 Content-Type: application/json
 
 {
@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/api/orders
+PUT http://localhost:8080/api/orders/update
 Content-Type: application/json
 
 {
@@ -36,8 +36,8 @@ Content-Type: application/json
     "phone": "0962122004",
     "email": "hoangaphu69@gmail.com",
     "address": "VJ4J+524, Tân Hưng Thuận, Quận 12, Thành phố Hồ Chí Minh",
-    "deliveryDate": "2024-04-09 18:09:46.256+07",
-    "orderDate": "2024-04-09 18:09:46.256+07",
+    "deliveryDate": "2024-04-05 18:09:46.256+07",
+    "orderDate": "2024-04-05 18:09:46.256+07",
     "quantity": 12,
     "brand": "bullball",
     "deposit": 500000,
@@ -53,8 +53,8 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/orders/2
+GET http://localhost:8080/api/orders/find-by-id/2
 
 ###
-DELETE http://localhost:8080/api/orders/2
+DELETE http://localhost:8080/api/orders/delete-by-id/2
 

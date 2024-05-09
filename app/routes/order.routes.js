@@ -13,17 +13,20 @@ module.exports = function (app) {
 
   // Route for accessing API for everyone
   // Endpoint to retrieve all orders, authentication required
-  app.get('/api/orders', orderController.findAllOrders);
+  app.get('/api/orders/find-all', [authJwt.verifyToken], orderController.findAllOrders);
 
   // Endpoint to retrieve a specific order by ID, authentication required
-  app.get('/api/orders/:id', orderController.findOrderById);
+  app.get('/api/orders/find-by-id/:id', orderController.findOrderById);
+
+  // Endpoint to retrieve orders with conditions, authentication required
+  app.get('/api/orders/search/', orderController.fetchOrdersWithConditions);
 
   // Endpoint to delete a specific order by ID, authentication required
-  app.delete('/api/orders/:id', orderController.deleteOrderById);
+  app.delete('/api/orders/delete-by-id/:id', orderController.deleteOrderById);
 
   // Endpoint to update a specific order by ID, authentication required
-  app.put('/api/orders', orderController.updateOrder);
+  app.put('/api/orders/update', orderController.updateOrder);
 
   // Endpoint to create a new order, authentication required
-  app.post('/api/orders', orderController.saveOrder);
+  app.post('/api/orders/save', orderController.saveOrder);
 };

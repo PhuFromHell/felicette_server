@@ -1,5 +1,6 @@
 const db = require("../models");
 const Order = db.Order;
+const { Op } = require('sequelize');
 
 class OrderRepository {
   // Find all orders in the database
@@ -21,6 +22,82 @@ class OrderRepository {
       throw new Error(`Error while fetching orders: ${error.message}`);
     }
   }
+  // Function to fetch orders with conditions
+  async fetchOrdersWithConditions(conditions) {
+    try {
+      let whereClause = {}; // Initialize an empty condition object
+
+      // Add condition for name if provided
+      if (conditions.name) {
+        whereClause.name = {
+          [Op.like]: `%${conditions.name}%`
+        };
+      }
+
+      // Add condition for phone if provided
+      if (conditions.phone) {
+        whereClause.phone = {
+          [Op.like]: `%${conditions.phone}%`
+        };
+      }
+
+      // Add condition for address if provided
+      if (conditions.address) {
+        whereClause.address = {
+          [Op.like]: `%${conditions.address}%`
+        };
+      }
+
+      // Determine condition for deliveryDate if provided
+      if (conditions.deliveryDateFrom && conditions.deliveryDateTo) {
+        whereClause.deliveryDate = {
+          [Op.between]: [conditions.deliveryDateFrom, conditions.deliveryDateTo]
+        };
+      } else if (conditions.deliveryDateFrom) {
+        whereClause.deliveryDate = {
+          [Op.gte]: conditions.deliveryDateFrom
+        };
+      } else if (conditions.deliveryDateTo) {
+        whereClause.deliveryDate = {
+          [Op.lte]: conditions.deliveryDateTo
+        };
+      }
+
+      // Add condition for brand if provided
+      if (conditions.brand) {
+        whereClause.brand = {
+          [Op.like]: `%${conditions.brand}%`
+        };
+      }
+
+      // Add condition for status if provided
+      if (conditions.status) {
+        whereClause.status = {
+          [Op.like]: `%${conditions.status}%`
+        };
+      }
+
+      // Add condition for orderBy if provided
+      if (conditions.orderBy) {
+        whereClause.orderBy = {
+          [Op.like]: `%${conditions.orderBy}%`
+        };
+      }
+
+      // Add condition for delFlg if provided
+      if (conditions.delFlg) {
+        whereClause.delFlg = conditions.delFlg;
+      }
+
+      // Call findAll with conditions if any
+      const orders = await Order.findAll({ where: whereClause });
+      
+      return orders;
+    } catch (error) {
+      throw new Error('Error while fetching orders with conditions: ' + error.message);
+    }
+  }
+
 
   // Save a new order to the database
   async saveOrder(orderData) {
