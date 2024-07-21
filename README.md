@@ -1,4 +1,8 @@
 # felicette_server
+
+npm install
+npm install nodemon --save-dev
+
 # run server  --> node server.js OR node server
 # nodemon co the chay nhu sau: npm run startServer
 
