@@ -25,6 +25,15 @@ class OrderController {
     }
   }
 
+  // Find order with conditions controller
+  async fetchOrdersWithConditions(req, res) {
+    const conditions = req.query; // Get query parameters from the request
+    // Call the service to handle search conditions and return the results
+    const orders = await orderService.fetchOrdersWithConditions(conditions);
+    res.json(orders); // Return the results to the client
+  };
+
+
   // Save order controller
   async saveOrder(req, res) {
     const orderData = req.body;
