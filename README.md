@@ -6,9 +6,9 @@ npm install nodemon --save-dev
 # run server  --> node server.js OR node server
 # nodemon co the chay nhu sau: npm run startServer
 
-# branch: - main -> source nguyên thủy nghiêm cấm merge từ bất kỳ nhánh nào
-#         - master -> source hoàn thiện đưa vào sửa dụng
-#         - develop -> source được merge từ các nhánh sau khi hoàn thành task
+# branch: 
+#         - master -> source completed for release
+#         - develop -> source merged from other branches
 
 # quy định code trong dự án 
 #         - Luôn luôn dùng dấu chấm phẩy (;)
