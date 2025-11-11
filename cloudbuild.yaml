@@ -18,3 +18,11 @@ steps:
   - --region=europe-west1 # Khu vực dịch vụ của bạn
   - --platform=managed
   - --allow-unauthenticated # Tùy chọn, chỉ khi bạn muốn truy cập công khai
+
+# Thêm phần này vào cuối file cloudbuild.yaml của bạn
+options:
+  # Tùy chọn (c): Chỉ sử dụng Cloud Logging
+  logging: CLOUD_LOGGING_ONLY 
+  
+  # HOẶC Tùy chọn (b): Sử dụng bucket nhật ký mặc định theo khu vực (nếu bạn không muốn chỉnh sửa Trigger)
+  # default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
