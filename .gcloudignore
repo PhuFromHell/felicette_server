@@ -1,0 +1,10 @@
+# Files to ignore when uploading to Google Cloud Build
+node_modules/
+.env
+.env.*
+.git
+.gitignore
+Dockerfile
+README.md
+*.log
+/*.tgz
