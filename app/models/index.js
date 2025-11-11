@@ -13,9 +13,21 @@ const sequelize = new Sequelize(
       min: config.pool.min,
       acquire: config.pool.acquire,
       idle: config.pool.idle
-    }
+    },
+    
+    dialectOptions: config.dialectOptions, // thêm dòng này để kích hoạt SSL
+
   }
 );
+
+sequelize.authenticate()
+  .then(() => {
+    console.log("✅ Kết nối tới Neon PostgreSQL thành công!");
+  })
+  .catch((err) => {
+    console.error("❌ Lỗi kết nối Neon:", err);
+  });
+
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
