@@ -1,0 +1,20 @@
+steps:
+# Bước 1: Build Docker Image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/felicette-server:$COMMIT_SHA', '.']
+
+# Bước 2: Đẩy Docker Image lên Google Container Registry (GCR)
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/felicette-server:$COMMIT_SHA']
+
+# Bước 3: Triển khai lên Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - run
+  - deploy
+  - felicette-server # Tên dịch vụ của bạn
+  - --image=gcr.io/$PROJECT_ID/felicette-server:$COMMIT_SHA
+  - --region=europe-west1 # Khu vực dịch vụ của bạn
+  - --platform=managed
+  - --allow-unauthenticated # Tùy chọn, chỉ khi bạn muốn truy cập công khai
