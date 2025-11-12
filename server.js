@@ -4,7 +4,7 @@ const app = express();
 const db = require("./app/models");
 const Role = db.role;
 
-const clentURL = "http://localhost:5173"
+const clentURL = "https://vue-cloudrun-450550597748.asia-southeast1.run.app"
 
 let corsOptions = {
   origin: clentURL
@@ -17,13 +17,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Nếu muốn chỉ cho phép Vue app Cloud Run truy cập:
-app.use(
-  cors({
-    origin: "https://vue-cloudrun-450550597748.asia-southeast1.run.app", // domain thật của Vue app
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://vue-cloudrun-450550597748.asia-southeast1.run.app", // domain thật của Vue app
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Đạo Huỳnh SPORTS application." });
