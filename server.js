@@ -16,6 +16,15 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+// Nếu muốn chỉ cho phép Vue app Cloud Run truy cập:
+app.use(
+  cors({
+    origin: "https://vue-cloudrun-450550597748.asia-southeast1.run.app", // domain thật của Vue app
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Đạo Huỳnh SPORTS application." });
 });
